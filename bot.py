@@ -29,19 +29,7 @@ def main():
     h = updater.dispatcher.add_handler
 
     # Assigning handlers
-    h(CommandHandler("start", handlers.start))
-    h(CommandHandler("help", handlers.help))
-    h(CommandHandler("more", handlers.more))
-    h(CommandHandler("ping", handlers.ping))
-    h(CommandHandler("donate", handlers.donate, pass_user_data=True))
-    h(CommandHandler("support", handlers.support, filters=Filters.private))
-    h(CommandHandler("support", handlers.support_group, filters=Filters.group))
-    h(CommandHandler("about", handlers.about))
-    h(CallbackQueryHandler(handlers.change_donation_quantity, pattern=r"don\*", pass_user_data=True))
-    h(CallbackQueryHandler(handlers.send_donation_receipt, pattern=r"donate$", pass_user_data=True))
-    h(MessageHandler(filters=Filters.successful_payment, callback=handlers.completed_donation))
-    h(PreCheckoutQueryHandler(handlers.approve_transaction))
-
+    h(MessageHandler(Filters.all, handlers.incoming_message))
     updater.dispatcher.add_error_handler(handlers.error)
 
     updater.start_polling()
