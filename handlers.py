@@ -4,9 +4,6 @@ Here should be declared all functions that handle the supported Telegram API cal
 
 import random
 import const
-from bot_tokens import PAYMENT_PROVIDER_TOKEN
-from lang import get_lang
-from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, LabeledPrice
 
 
 def _generate_message_que_dise():

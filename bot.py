@@ -4,7 +4,6 @@ The bot will be run from this file. Here the handler functions will be assigned.
 
 import logging
 import handlers
-import database
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler, MessageHandler, Filters, PreCheckoutQueryHandler
 
 from bot_tokens import BOT_TOKEN
